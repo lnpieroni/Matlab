@@ -1,0 +1,39 @@
+%% testprime.m
+% Test a randomly generated 5x5 array of elements
+% Author: Len Pieroni
+% No assistance
+
+clear;
+clc;
+%% Array Generation
+% Generate 5x5 array of random integers between 1 & 100
+randArray = randi(100, 5);
+
+%% Get Inputs
+
+row = input("Row Number: ");
+col = input("Column Number: ");
+
+%% Pick Recommendation
+
+if isprime(randArray(row, col))
+   output = "The ("...
+       + row...
+       + ", "...
+       + col...
+       + ") element is "...
+       + randArray(row, col)...
+       + ", which is prime.";
+else
+   output = "The ("...
+       + row...
+       + ", "...
+       + col...
+       + ") element is "...
+       + randArray(row, col)...
+       + ", which is not prime.";
+end
+
+%% Output
+
+disp(output);

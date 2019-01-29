@@ -12,12 +12,12 @@ maxWalkDist = 1;
 maxBikeDist = 5;
 maxDriveDist = 250;
 
-transitMethod = ["walk", "bike", "drive (car)", "fly (plane)"];
+transitMethod = ["walk", "bike", "drive", "fly"];
 
-prompt = "Enter distance to destination (miles)";
+prompt = "Enter distance to destination (miles): ";
 distance = input(prompt);
 
-prompt = "Can you ride a bike? (0 for no, 1 for yes)";
+prompt = "Can you ride a bike? (0 for no, 1 for yes) ";
 bCanRideBike = input(prompt);
 
 %% Determine Transport Method

@@ -12,4 +12,4 @@ inputs = linspace(-255, 255, 511);
 mtrPwr = (log(abs(inputs)) .* sign(inputs)) / (log(255));
 
 %% Plotting
-plot(inputs, mtrPwr, "-o");
+plot(inputs, mtrPwr, "b-o");

@@ -1,0 +1,26 @@
+%% Solve5.m
+% Solve 5 linear equations simultaneously
+% Author: Len Pieroni
+% No assistance
+
+%% Array & Vector Initialization
+% 5x5 array of coefficients
+coeffs = [1, 2, 0, -1, 7;...
+    -4, 78, 53, -28, -47;...
+    92, 29, 63, 38, 42;...
+    74, 63, -9, -7, 49;...
+    -49, -99, 84, 12, 7];
+% Column vector of constants on right side of equality operator
+equals = [36; -36; 701; 390; 88];
+
+%% Equation Solving
+solutions = coeffs\equals;
+
+%% Output
+output = "a =  " + num2str(solutions(1)) + newline...
+    + "b = " + num2str(solutions(2)) + newline...
+    + "c = " + num2str(solutions(3)) + newline...
+    + "d = " + num2str(solutions(4)) + newline...
+    + "e = " + num2str(solutions(5));
+
+disp(output);

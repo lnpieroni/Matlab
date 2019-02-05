@@ -32,6 +32,16 @@ for hwCt = 1:7
     hwAvg(hwCt) = mean(hwData(:, hwCt));
 end
 
+%% Find lowest score
+lowest = 150;
+for iHwScore = 1:7
+    if(hwAvg(iHwScore) < lowest)
+        lowest = hwAvg(iHwScore);
+    end
+end
+
+disp("The lowest average assignment score is " + num2str(lowest));
+
 %% Plot homework scores
 plot(hwAvg, "b--o");
 xlabel("Homework Number");

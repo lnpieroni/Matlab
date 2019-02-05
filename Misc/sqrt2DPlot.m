@@ -1,3 +1,7 @@
+%% sqrt2DPlot.m
+% Plots 5 graphs of simulated inputs
+% Author: Len Pieroni
+
 clear;
 clc;
 

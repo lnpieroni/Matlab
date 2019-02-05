@@ -5,11 +5,13 @@ clear;
 clc;
 
 %% Inputs and Parameters
+lStick = -127:127;
+rStick = [-127; -63; 0; 63; 127];
 
-inputs = linspace(-255, 255, 511);
+inputs = lStick + rStick;
 
 %% Calculations
-mtrPwr = (log(abs(inputs)) .* sign(inputs)) / (log(255));
+mtrPwr = (log(abs(inputs)) .* sign(inputs) / log(254));
 
 %% Plotting
-plot(inputs, mtrPwr, "b-o");
+plot3(lStick, [-127:127], mtrPwr, "b-x");

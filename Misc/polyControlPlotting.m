@@ -1,6 +1,5 @@
-%% sqrt2DPlot.m
-% Plots 5 graphs of simulated inputs
-% Author: Len Pieroni
+%% polyControlPlotting.m
+% Plots 7 graphs of motor behavior at different turning values
 
 clear;
 clc;
@@ -24,20 +23,20 @@ rMtrPwr = lInsForward - (rInsTurn).*(1-abs(lInsForward.*gamma));
 lMtrPwr = min(max(lMtrPwr, -1), 1);
 rMtrPwr = min(max(rMtrPwr, -1), 1);
 
-plotFormat = ["b-", "r-", "g-", "c-", "m-", "y-", "k-"];
+plotFormat = ["b-", "r-", "g-", "c-", "m--", "r--", "k--"];
 
 hold on;
+title("Left Motor");
 for iPlotCt = 1:7
     plot(lStick, lMtrPwr(iPlotCt, :), plotFormat(iPlotCt));
 end
-% figure('Name', "Left Motor");
 legend(num2str(rStick));
 hold off;
 figure;
 hold on;
+title("Right Motor");
 for iPlotCount = 1:7
     plot(lStick, rMtrPwr(iPlotCount, :), plotFormat(iPlotCount));
 end
-% figure('Name', "Right Motor");
 legend(num2str(rStick));
 hold off;

@@ -4,12 +4,12 @@
 clear;
 clc;
 
-lStick = linspace(-1, 1, 100);
-rStick = [-1; -.75; -.5; 0; .5; .75; 1];
+lStick = linspace(-1, 1, 1000);
+rStick = [-1; -.75; -.5; -.25; 0; .25; .5; .75; 1];
 
 alpha = .25;
-beta = 0.25;
-gamma = 0.6;
+beta = .25;
+gamma = .6;
 
 lInsForward = (lStick.^3 + lStick.*(alpha))./(1+alpha);
 rInsForward = (rStick.^3 + rStick.*(alpha))./(1+alpha);
@@ -23,11 +23,11 @@ rMtrPwr = lInsForward - (rInsTurn).*(1-abs(lInsForward.*gamma));
 lMtrPwr = min(max(lMtrPwr, -1), 1);
 rMtrPwr = min(max(rMtrPwr, -1), 1);
 
-plotFormat = ["b-", "r-", "g-", "c-", "m--", "r--", "k--"];
+plotFormat = ["b-", "r-", "g-", "c-", "m-.", "r--", "k--", "b--", "g--"];
 
 hold on;
 title("Left Motor");
-for iPlotCt = 1:7
+for iPlotCt = 1:9
     plot(lStick, lMtrPwr(iPlotCt, :), plotFormat(iPlotCt));
 end
 legend(num2str(rStick));
@@ -35,7 +35,7 @@ hold off;
 figure;
 hold on;
 title("Right Motor");
-for iPlotCount = 1:7
+for iPlotCount = 1:9
     plot(lStick, rMtrPwr(iPlotCount, :), plotFormat(iPlotCount));
 end
 legend(num2str(rStick));

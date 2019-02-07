@@ -4,12 +4,11 @@
 clear;
 clc;
 
-lStick = -1:.001:1;
-rStick = -1:.001:1;
+[lStick, rStick] = meshgrid(-1:.001:1);
 
 alpha = .25;
-beta = 0.25;
-gamma = 0.6;
+beta = .25;
+gamma = .6;
 
 lInsForward = (lStick.^3 + lStick.*(alpha))./(1+alpha);
 rInsForward = (rStick.^3 + rStick.*(alpha))./(1+alpha);
@@ -23,5 +22,13 @@ rMtrPwr = lInsForward - (rInsTurn).*(1-abs(lInsForward.*gamma));
 lMtrPwr = min(max(lMtrPwr, -1), 1);
 rMtrPwr = min(max(rMtrPwr, -1), 1);
 
-surf(lStick, rStick, lMtrPwr);
-surf(lStick, rStick, rMtrPwr);
+lSurfFig = figure();
+lSurfFig.Name = "Left Motor";
+lSurf = surf(lStick, rStick, lMtrPwr);
+lSurf.EdgeColor = 'none';
+lSurf.FaceAlpha = .75;
+rSurfFig = figure();
+rSurfFig.Name = "Right Motor";
+rSurf = surf(lStick, rStick, rMtrPwr);
+rSurf.EdgeColor = 'none';
+rSurf.FaceAlpha = .75;

@@ -23,7 +23,7 @@ rMtrPwr = lInsForward - (rInsTurn).*(1-abs(lInsForward.*gamma));
 lMtrPwr = min(max(lMtrPwr, -1), 1);
 rMtrPwr = min(max(rMtrPwr, -1), 1);
 
-plotFormat = ["b-", "r-", "g-", "c-", "m-.", "r--", "k--", "b--", "g--"];
+plotFormat = ["b--", "r--", "g--", "c--", "k-.", "c-", "g-", "r-", "b-"];
 
 hold on;
 title("Left Motor");

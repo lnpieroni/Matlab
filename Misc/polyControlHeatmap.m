@@ -4,8 +4,8 @@
 clear;
 clc;
 
-lStick = linspace(-1, 1, 1000);
-rStick = linspace(-1, 1, 1000);
+lStick = -1:.001:1;
+rStick = -1:.001:1;
 
 alpha = .25;
 beta = 0.25;
@@ -22,3 +22,6 @@ rMtrPwr = lInsForward - (rInsTurn).*(1-abs(lInsForward.*gamma));
 
 lMtrPwr = min(max(lMtrPwr, -1), 1);
 rMtrPwr = min(max(rMtrPwr, -1), 1);
+
+surf(lStick, rStick, lMtrPwr);
+surf(lStick, rStick, rMtrPwr);

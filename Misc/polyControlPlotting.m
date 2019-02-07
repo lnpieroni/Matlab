@@ -4,7 +4,7 @@
 clear;
 clc;
 
-lStick = linspace(-1, 1, 1000);
+lStick = -1:.001:1;
 rStick = [-1; -.75; -.5; -.25; 0; .25; .5; .75; 1];
 
 alpha = .25;

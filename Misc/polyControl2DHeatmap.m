@@ -4,10 +4,10 @@
 clear;
 clc;
 
-lStick = -1:.001:1;
-rStick = 1:-.001:-1;
+lStick = linspace(255, 0, 256);
+rStick = linspace(0, 255, 256);
 
-[lVals, rVals] = meshgrid(-1:.001:1, -1:.001:1);
+[lVals, rVals] = meshgrid(linspace(-1, 1, 256), linspace(1, -1, 256));
 
 alpha = .25;
 beta = .25;
@@ -25,21 +25,23 @@ rMtrPwr = lInsForward - (rInsTurn).*(1-abs(lInsForward.*gamma));
 lMtrPwr = min(max(lMtrPwr, -1), 1);
 rMtrPwr = min(max(rMtrPwr, -1), 1);
 
+rMtrPwr = -rMtrPwr;
+
 lMapFig = figure();
 lMapFig.Name = "Left Motor";
-lMap = heatmap(lStick, rStick, lMtrPwr);
+lMap = heatmap(rStick, lStick, lMtrPwr);
 lMap.ColorMethod = 'none';
 lMap.GridVisible = 'off';
 lMap.Colormap = jet;
-xlabel("Left/Right");
-ylabel("Forward/Back");
+xlabel("Right");
+ylabel("Forward");
 colorbar;
 rMapFig = figure();
 rMapFig.Name = "Right Motor";
-rMap = heatmap(lStick, rStick, rMtrPwr);
+rMap = heatmap(rStick, lStick, rMtrPwr);
 rMap.ColorMethod = 'none';
 rMap.GridVisible = 'off';
 rMap.Colormap = jet;
-xlabel("Forward/Back");
-ylabel("Left/Right");
+ylabel("Forward");
+xlabel("Right");
 colorbar;

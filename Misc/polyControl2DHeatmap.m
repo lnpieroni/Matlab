@@ -4,10 +4,10 @@
 clear;
 clc;
 
-lStick = -1:.01:1;
-rStick = 1:-.01:-1;
+lStick = -1:.001:1;
+rStick = 1:-.001:-1;
 
-[lVals, rVals] = meshgrid(-1:.01:1, -1:.01:1);
+[lVals, rVals] = meshgrid(-1:.001:1, -1:.001:1);
 
 alpha = .25;
 beta = .25;
@@ -30,16 +30,16 @@ lMapFig.Name = "Left Motor";
 lMap = heatmap(lStick, rStick, lMtrPwr);
 lMap.ColorMethod = 'none';
 lMap.GridVisible = 'off';
-lMap.Colormap = winter;
-xlabel("Forward/Back");
-ylabel("Left/Right");
+lMap.Colormap = jet;
+xlabel("Left/Right");
+ylabel("Forward/Back");
 colorbar;
 rMapFig = figure();
 rMapFig.Name = "Right Motor";
 rMap = heatmap(lStick, rStick, rMtrPwr);
 rMap.ColorMethod = 'none';
 rMap.GridVisible = 'off';
-rMap.Colormap = winter;
+rMap.Colormap = jet;
 xlabel("Forward/Back");
 ylabel("Left/Right");
 colorbar;

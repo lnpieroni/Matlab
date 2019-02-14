@@ -1,5 +1,8 @@
 %% changeArray.m
 
+clear;
+clc;
+
 %% Establish nMin & row, column counts, plus minimum number counter
 nMin = 20;
 nRows = 8;

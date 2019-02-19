@@ -3,6 +3,7 @@
 
 clear;
 clc;
+close all;
 
 %% Variable Creation
 

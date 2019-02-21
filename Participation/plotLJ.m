@@ -24,13 +24,13 @@ y = r.*sin(time.*2.*pi./tau.*b+phi);
 
 if animateOn
     for it = 1:timePoints
+        plot(x(1:it), y(1:it), "b",...
+            x(it), y(it), "ro");
+        xlabel('x');
+        ylabel('y');
         axis([-4, 4, -4, 4]);
         axis square;
         grid on;
-        xlabel('x');
-        ylabel('y');
-        plot(x(1:it), y(1:it), "b",...
-            x(it), y(it), "ro");
         drawnow;
     end
 else

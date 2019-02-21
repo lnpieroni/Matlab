@@ -17,10 +17,10 @@ iterationCount = 0;
 
 %% Guessing loop
 
-while not(userGuess == 0) & not(isstrprop(userGuess, 'alpha'))
+while not(userGuess == 0) && not(isstrprop(userGuess, 'alpha'))
     userGuess = 25;
-    targetVal = randi(20)
-    while not(userGuess == targetVal) & userGuess > 0
+    targetVal = randi(20);
+    while not(userGuess == targetVal) && userGuess > 0
         userGuess = input('Enter your guess for a number between 1 and 20 (or enter 0 or q to quit): ', 's');
         if isstrprop(userGuess, 'digit')
             userGuess = str2double(userGuess);

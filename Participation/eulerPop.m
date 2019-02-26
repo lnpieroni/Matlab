@@ -20,8 +20,11 @@ population = zeros(1, length(timeIntervals));
 population(1) = initialPop;
 for i = 2:length(timeIntervals)
     population(i) = population(i-1) + growthRate*(maxPop-population(i-1))*population(i-1)*deltaT;
-    disp("The population at time " + num2str(deltaT*(i-1))+ " is " +...
-        num2str(population(i)) + " people.");
+%     disp("The population at time " + num2str(deltaT*(i-1))+ " is " +...
+%         num2str(population(i)) + " people.");
 end
+disp("The final population is approximately "...
+    + num2str(population(length(population)))...
+    + " people.");
 plot(timeIntervals, population, "r-");
 axis([startTime, endTime, initialPop-100, maxPop+100]);

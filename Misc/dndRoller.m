@@ -3,6 +3,10 @@
 clear;
 clc;
 
+[fileName, filePath] = uigetfile({'*.txt'; '*.*'});
+fileStr = fullfile(filePath, fileName);
+fileId = fopen(fileStr, 'w');
+
 exit = 0;
 while exit == 0
     dice = randi([1, 6], 6, 4);
@@ -18,6 +22,22 @@ while exit == 0
         end
         sums(statIter) = sums(statIter) - lows(statIter);
     end
-    disp(sums);
-    exit = input('0 to continue, anything else to exit. ');
+    ordered = false;
+    while ordered == false
+        ordered = true;
+        for sortIndex = 1:5
+            if sums(sortIndex) < sums(sortIndex+1)
+                sums(sortIndex) = sums(sortIndex) + sums(sortIndex+1);
+                sums(sortIndex+1) = sums(sortIndex) - sums(sortIndex+1);
+                sums(sortIndex) = sums(sortIndex) - sums(sortIndex+1);
+                ordered = false;
+            end
+        end
+    end
+    str = sprintf("%d\t%d\t%d\t%d\t%d\t%d", sums(1), sums(2), sums(3), sums(4), sums(5), sums(6));
+    disp(str);
+    fprintf(fileId, "%d\t%d\t%d\t%d\t%d\t%d\n", sums(1), sums(2), sums(3), sums(4), sums(5), sums(6));
+    exit = input('Enter 0 to continue, anything else to exit. ');
 end
+fclose(fileId);
+type(fileStr);

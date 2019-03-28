@@ -168,6 +168,8 @@ function calcButton_Callback(hObject, eventdata, handles)
 % hObject    handle to calcButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+handles.aText.String = num2str(handles.aSlider.Value);
+handles.bText.String = num2str(handles.bSlider.Value);
 handles.addText.String = num2str(handles.aSlider.Value + handles.bSlider.Value);
 handles.subText.String = num2str(handles.aSlider.Value - handles.bSlider.Value);
 handles.multText.String = num2str(handles.aSlider.Value * handles.bSlider.Value);

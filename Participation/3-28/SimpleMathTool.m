@@ -22,7 +22,7 @@ function varargout = SimpleMathTool(varargin)
 
 % Edit the above text to modify the response to help SimpleMathTool
 
-% Last Modified by GUIDE v2.5 28-Mar-2019 14:28:06
+% Last Modified by GUIDE v2.5 28-Mar-2019 14:37:29
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
